@@ -1,3 +1,3 @@
-const isGitHubPages = /allpro\.github\.io/.test(window.location.hostname)
+const isGitHubPages = /(github\.io|codesandbox\.io)/.test(window.location.hostname)
 
 export { isGitHubPages }

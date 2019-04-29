@@ -130,7 +130,6 @@ function DrawerContents(props) {
 			<List>
 				<ListNavItem to="/" exact label="Home" />
 				<ListNavItem to="/simple-tabs" label="Simple Tabs" />
-				<ListNavItem to="/tabs-with-root-path" label="Tabs with Root-Path" />
 				<ListNavItem to="/nested-tabs" label="Nested Tabs" />
 			</List>
 
