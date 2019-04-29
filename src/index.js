@@ -1,22 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import Wrapper from './Wrapper'
+import Tabs from './Tabs'
+import Content from './Content'
+import PropsRoute from './PropsRoute'	// export helper for potential use
+import Placeholder from './Placeholder'	// for demo and development
 
-import styles from './styles.css'
-
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
-
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+export default Wrapper
+export { Tabs, Content, PropsRoute }
