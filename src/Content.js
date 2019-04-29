@@ -9,6 +9,8 @@ const isEmptyPath = path => !path || path === '/'
 
 
 class Content extends React.Component {
+	static contextType = Context
+
 	render() {
 		const { context } = this
 		const tabs = context.getTabsData()
@@ -18,21 +20,13 @@ class Content extends React.Component {
 		return (
 			<Switch>
 				{tabs.map((tab, idx) => {
-					const { label, path, component, exact, props } = tab
-					// console.log(
-					// 	'route:',
-					// 	label,
-					// 	'-',
-					// 	path,
-					// 	context.getTabPath(path),
-					// 	{ props, tab }
-					// )
+					const { path, fullPath, component, exact, props } = tab
 
 					return (
 						<PropsRoute
 							key={idx}
 							exact={exact || (exact !== false && isEmptyPath(path))}
-							path={context.getTabPath(path)}
+							path={fullPath}
 							component={component || Placeholder}
 							{...props || {}}
 						/>
@@ -42,8 +36,5 @@ class Content extends React.Component {
 		)
 	}
 }
-
-
-Content.contextType = Context
 
 export default Content

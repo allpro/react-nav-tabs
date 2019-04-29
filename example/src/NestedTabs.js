@@ -1,29 +1,24 @@
 import React from 'react'
 
-import NavTabs, { Tabs, Content } from 'react-nav-tabs'
+import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
+// import NavTabs, { Tabs, Content } from 'react-nav-tabs'
 
-
-const paths = {
-	one: { path: 'one' },
-	two: { path: 'two' },
-	three: { path: 'three' },
-}
 
 const innerTabs = [
 	{
-		label: 'Inner One',
-		path: 'one',
-		props: { text: 'Placeholder for "Inner One" tab' }
+		label: 'Inner Uno',
+		path: 'uno',
+		props: { text: 'Placeholder for "Inner Uno" tab' }
 	},
 	{
-		label: 'Inner Two',
-		path: 'two',
-		props: { text: 'Placeholder for "Inner Two" tab' }
+		label: 'Inner Dos',
+		path: 'dos',
+		props: { text: 'Placeholder for "Inner Dos" tab' }
 	},
 	{
-		label: 'Inner Three',
-		path: 'three',
-		props: { text: 'Placeholder for "Inner Three" tab' }
+		label: 'Inner Tres',
+		path: 'tres',
+		props: { text: 'Placeholder for "Inner Tres" tab' }
 	}
 ]
 
@@ -31,38 +26,74 @@ function InnerTabs() {
 	return (
 		<NavTabs
 			tabs={innerTabs}
-			defaultTab={0}
+			depth="3"
 		>
-			<Tabs indicatorColor="primary" />
+			<Tabs indicatorColor="secondary" textColor="secondary" />
 			<Content />
 		</NavTabs>
 	)
 }
 
-const outerTabs = [
+
+const middleTabs = [
 	{
-		label: 'Outer One',
-		path: paths.one.path,
+		label: 'Middle Un',
+		path: 'un',
+		props: { text: 'Placeholder for "Middle Un" tab' },
 		component: InnerTabs
 	},
 	{
-		label: 'Outer Two',
-		path: paths.two.path,
+		label: 'Middle Deux',
+		path: 'deux',
+		props: { text: 'Placeholder for "Middle Deux" tab' },
 		component: InnerTabs
 	},
 	{
-		label: 'Outer Three',
-		path: paths.three.path,
+		label: 'Middle Trois',
+		path: 'trois',
+		props: { text: 'Placeholder for "Middle Trois" tab' },
 		component: InnerTabs
 	}
 ]
 
+function MiddleTabs() {
+	return (
+		<NavTabs
+			tabs={middleTabs}
+			defaultTab={0}
+			depth={2}
+		>
+			<Tabs indicatorColor="primary" textColor="primary" />
+			<Content />
+		</NavTabs>
+	)
+}
+
+
+const outerTabs = [
+	{
+		label: 'Outer One',
+		path: 'one',
+		component: MiddleTabs
+	},
+	{
+		label: 'Outer Two',
+		path: 'two',
+		component: MiddleTabs
+	},
+	{
+		label: 'Outer Three',
+		path: 'three',
+		component: MiddleTabs
+	}
+]
 
 function App() {
 	return (
 		<NavTabs
 			tabs={outerTabs}
 			defaultTab={0}
+			parentPath="nested-tabs"
 		>
 			<Tabs />
 			<Content />

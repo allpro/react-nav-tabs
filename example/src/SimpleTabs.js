@@ -1,6 +1,7 @@
 import React from 'react'
 
-import NavTabs, { Tabs, Content } from 'react-nav-tabs'
+import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
+// import NavTabs, { Tabs, Content } from 'react-nav-tabs'
 
 
 const tabs = [
