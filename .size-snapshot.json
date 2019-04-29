@@ -17,5 +17,10 @@
     "bundled": 17561,
     "minified": 16857,
     "gzipped": 6526
+  },
+  "umd/@allpro/react-nav-tabs.min.js": {
+    "bundled": 17561,
+    "minified": 16857,
+    "gzipped": 6526
   }
 }
