@@ -3,6 +3,7 @@ import React from 'react'
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
 // import NavTabs, { Tabs, Content } from 'react-nav-tabs'
 
+import { isGitHubPages } from './utils'
 
 const innerTabs = [
 	{
@@ -26,7 +27,7 @@ function InnerTabs() {
 	return (
 		<NavTabs
 			tabs={innerTabs}
-			depth="3"
+			depth={isGitHubPages() ? 4 : 3}
 		>
 			<Tabs indicatorColor="secondary" textColor="secondary" />
 			<Content />
@@ -61,7 +62,7 @@ function MiddleTabs() {
 		<NavTabs
 			tabs={middleTabs}
 			defaultTab={0}
-			depth={2}
+			depth={isGitHubPages() ? 3 : 2}
 		>
 			<Tabs indicatorColor="primary" textColor="primary" />
 			<Content />
@@ -93,7 +94,7 @@ function App() {
 		<NavTabs
 			tabs={outerTabs}
 			defaultTab={0}
-			parentPath="nested-tabs"
+			depth={isGitHubPages() ? 2 : 1}
 		>
 			<Tabs />
 			<Content />
