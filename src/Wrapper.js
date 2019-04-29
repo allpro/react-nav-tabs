@@ -189,15 +189,15 @@ class Wrapper extends React.Component {
 }
 
 
-const { arrayOf, boolean, component, number, object, oneOfType, string, shape } = PropTypes
+const { arrayOf, bool, component, number, object, oneOfType, string, shape } = PropTypes
 
 Wrapper.propTypes = {
-	defaultTab: oneOfType([number, boolean]),
+	defaultTab: oneOfType([ number, bool ]),
 	tabs: arrayOf(
 		shape({
 			label: string,
 			path: string,
-			exact: boolean,
+			exact: bool,
 			component: component,
 			props: object
 		})
