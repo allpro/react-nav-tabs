@@ -8,7 +8,7 @@ import { isGitHubPages } from './utils'
 
 function NavTabsDemo() {
 	return (
-		<Router basename={isGitHubPages() ? '/react-nav-tabs' : ''}>
+		<Router basename={isGitHubPages ? '/react-nav-tabs' : ''}>
 			<Switch>
 				<Route path="/" exact component={App} />
 				<Route path="/:tabL1" component={App} />

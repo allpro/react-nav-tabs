@@ -27,7 +27,7 @@ function InnerTabs() {
 	return (
 		<NavTabs
 			tabs={innerTabs}
-			depth={isGitHubPages() ? 4 : 3}
+			depth={isGitHubPages ? 4 : 3}
 		>
 			<Tabs indicatorColor="secondary" textColor="secondary" />
 			<Content />
@@ -62,7 +62,7 @@ function MiddleTabs() {
 		<NavTabs
 			tabs={middleTabs}
 			defaultTab={0}
-			depth={isGitHubPages() ? 3 : 2}
+			depth={isGitHubPages ? 3 : 2}
 		>
 			<Tabs indicatorColor="primary" textColor="primary" />
 			<Content />
@@ -94,7 +94,7 @@ function App() {
 		<NavTabs
 			tabs={outerTabs}
 			defaultTab={0}
-			depth={isGitHubPages() ? 2 : 1}
+			depth={isGitHubPages ? 2 : 1}
 		>
 			<Tabs />
 			<Content />
