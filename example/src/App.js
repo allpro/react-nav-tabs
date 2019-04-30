@@ -20,10 +20,10 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
 import Routes from './Routes'
 
-const theme = createMuiTheme({
+const darkTheme = createMuiTheme({
 	palette: {
-		type: 'dark',
-	},
+		type: 'dark'
+	}
 })
 
 const drawerWidth = 200
@@ -120,7 +120,7 @@ function DrawerContents(props) {
 	const { classes } = props;
 
 	return (
-		<MuiThemeProvider theme={theme}>
+		<MuiThemeProvider theme={darkTheme}>
 			<CssBaseline />
 
 			<div className={classes.topLeftToolbar}>
