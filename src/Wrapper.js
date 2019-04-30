@@ -37,7 +37,11 @@ function calcFullPath(tabPath, props) {
 	if (isString(depth)) depth = parseInt(depth, 10)
 	let fullPath = ''
 
-	if (parentPath) {
+	if (tabPath[0] === '/') {
+		// Absolute Path so DO NOT add anything to it!
+		fullPath = tabPath
+	}
+	else if (parentPath) {
 		// Parent-path MAY contain a parameter, eg: "/foo/:bar"
 		if (match.params) {
 			const arr = pathToArray(parentPath)
