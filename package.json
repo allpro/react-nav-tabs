@@ -1,6 +1,6 @@
 {
   "name": "@allpro/react-nav-tabs",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Wrapper for Material UI Tabs to integrate them with React Router",
   "repository": {
     "type": "git",
@@ -12,8 +12,8 @@
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "jsnext:main": "esm/index.js",
-  "react-native": "umd/repo-name.js",
-  "umd:main": "umd/repo-name.js",
+  "react-native": "umd/react-nav-tabs.js",
+  "umd:main": "umd/react-nav-tabs.js",
   "files": [
     "cjs",
     "esm",

@@ -69,7 +69,7 @@ export default [
 	{
 		input: 'src/index.js',
 		output: {
-			file: `umd/${pkg.name}.js`,
+			file: `umd/react-nav-tabs.js`,
 			format: 'umd',
 			name: 'RepoName',
 			globals,
@@ -83,7 +83,7 @@ export default [
 	{
 		input: 'src/index.js',
 		output: {
-			file: `umd/${pkg.name}.min.js`,
+			file: `umd/react-nav-tabs.min.js`,
 			format: 'umd',
 			name: 'RepoName',
 			globals,
