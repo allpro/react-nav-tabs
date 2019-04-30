@@ -1,5 +1,5 @@
-import React, { Fragment, createRef } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import React, { createRef } from 'react'
+import { NavLink, withRouter, matchPath } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { withStyles } from '@material-ui/core/styles'
@@ -15,8 +15,16 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
 import Routes from './Routes'
+
+const theme = createMuiTheme({
+	palette: {
+		type: 'dark',
+	},
+})
 
 const drawerWidth = 200
 
@@ -37,7 +45,8 @@ const styles = theme => ({
 		}
 	},
 	drawerPaper: {
-		width: drawerWidth
+		width: drawerWidth,
+		backgroundColor: '#24306b'
 	},
 	content: {
 		flexGrow: 1,
@@ -69,12 +78,11 @@ const navLinkStyle = {
 }
 
 const ListNavItem = withRouter(props => {
-	const { label, to, external, exact = false } = props
-	const { pathname } = props.location
+	const { label, to, external, exact = false, location } = props
 
 	const itemProps = {
-		selected: to === pathname,
-		style: navLinkStyle
+		style: navLinkStyle,
+		selected: matchPath(location.pathname, { path: to, exact })
 	}
 	if (external) {
 		Object.assign(itemProps, {
@@ -112,7 +120,9 @@ function DrawerContents(props) {
 	const { classes } = props;
 
 	return (
-		<Fragment>
+		<MuiThemeProvider theme={theme}>
+			<CssBaseline />
+
 			<div className={classes.topLeftToolbar}>
 				<Toolbar>
 					<Typography
@@ -128,9 +138,19 @@ function DrawerContents(props) {
 			<Divider />
 
 			<List>
-				<ListNavItem to="/" exact label="Home" />
-				<ListNavItem to="/simple-tabs" label="Simple Tabs" />
-				<ListNavItem to="/nested-tabs" label="Nested Tabs" />
+				<ListNavItem
+					label="Home"
+					to="/"
+					exact
+				/>
+				<ListNavItem
+					label="Simple Tabs"
+					to="/simple-tabs"
+				/>
+				<ListNavItem
+					label="Nested Tabs"
+					to="/nested-tabs"
+				/>
 			</List>
 
 			<Divider />
@@ -147,11 +167,11 @@ function DrawerContents(props) {
 					external
 				/>
 			</List>
-		</Fragment>
+		</MuiThemeProvider>
 	)
 }
 
-class RepoNameDemo extends React.Component {
+class NavTabsDemo extends React.Component {
 	constructor(props) {
 		super(props)
 
@@ -229,8 +249,8 @@ class RepoNameDemo extends React.Component {
 	}
 }
 
-RepoNameDemo.propTypes = {
+NavTabsDemo.propTypes = {
 	classes: object.isRequired
 }
 
-export default withStyles(styles)(RepoNameDemo)
+export default withStyles(styles)(NavTabsDemo)

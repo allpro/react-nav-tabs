@@ -44,7 +44,7 @@ If you pull or fork the repo, you can run the demo like this:
 
 -   NPM: `npm install @allpro/react-nav-tabs`
 -   Yarn: `yarn add @allpro/react-nav-tabs`
--   CDN: Exposed global is `RepoName`
+-   CDN: Exposed global is `ReactNavTabs`
     -   Unpkg: `<script src="https://unpkg.com/@allpro/react-nav-tabs/umd/react-nav-tabs.min.js"></script>`
     -   JSDelivr: `<script src="https://cdn.jsdelivr.net/npm/@allpro/react-nav-tabs/umd/react-nav-tabs.min.js"></script>`
 
@@ -261,7 +261,7 @@ A React component framework based on
 ## Contributing
 
 Please read 
-[CONTRIBUTING.md](https://github.com/allpro/repo-name/blob/master/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/allpro/react-nav-tabs/blob/master/CONTRIBUTING.md)
 for details on our code of conduct, 
 and the process for submitting pull requests to us.
 

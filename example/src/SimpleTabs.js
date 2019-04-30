@@ -1,7 +1,6 @@
 import React from 'react'
 
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
-// import NavTabs, { Tabs, Content } from 'react-nav-tabs'
 
 const code = `
 import React from 'react'
@@ -41,7 +40,7 @@ const tabs = [
 	{
 		label: 'Tab One',
 		path: 'one',
-		props: { text: 'Placeholder for "Tab One"', code: code }
+		props: { text: 'Placeholder for "Tab One"', code }
 	},
 	{
 		label: 'Tab Two',

@@ -71,7 +71,7 @@ export default [
 		output: {
 			file: `umd/react-nav-tabs.js`,
 			format: 'umd',
-			name: 'RepoName',
+			name: 'ReactNavTabs',
 			globals,
 			external: Object.keys(globals),
 			esModule: false,
@@ -85,7 +85,7 @@ export default [
 		output: {
 			file: `umd/react-nav-tabs.min.js`,
 			format: 'umd',
-			name: 'RepoName',
+			name: 'ReactNavTabs',
 			globals,
 			external: Object.keys(globals),
 			esModule: false,

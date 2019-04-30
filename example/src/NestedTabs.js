@@ -2,7 +2,6 @@ import React from 'react'
 
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
 
-
 const code = `
 import React from 'react'
 
@@ -31,7 +30,6 @@ function InnerTabs() {
         <NavTabs
             tabs={innerTabs}
             depth={3}
-            defaultTab={false}
         >
             <Tabs indicatorColor="secondary" textColor="secondary" />
             <Content />
@@ -129,7 +127,6 @@ function InnerTabs() {
 	return (
 		<NavTabs
 			tabs={innerTabs}
-			defaultTab={false}
 			depth={3}
 		>
 			<Tabs indicatorColor="secondary" textColor="secondary" />
