@@ -1,7 +1,7 @@
 {
   "name": "react-nav-tabs-example",
   "homepage": "https://allpro.github.io/react-nav-tabs",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "license": "MIT",
   "private": true,
   "peerDependencies": {

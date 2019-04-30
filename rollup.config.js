@@ -8,8 +8,6 @@ import svgr from '@svgr/rollup'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 import { terser } from 'rollup-plugin-terser'
 
-import pkg from './package.json'
-
 const globals = {
 	react: 'React',
 	'react-router-dom': 'ReactRouterDOM',
