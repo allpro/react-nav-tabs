@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function Placeholder(props) {
 	const wrapStyle = {
@@ -11,9 +11,18 @@ function Placeholder(props) {
 	const defaultText = 'I am a Placeholder'
 
 	return (
-		<h1 style={wrapStyle}>
-			{props.text || defaultText}
-		</h1>
+		<div style={wrapStyle}>
+			<h1>
+				{props.text || defaultText}
+			</h1>
+
+			{props.code && (
+				<Fragment>
+					<hr />
+					<pre><code>{props.code}</code></pre>
+				</Fragment>
+			)}
+		</div>
 	)
 }
 

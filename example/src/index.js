@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
 
-const isGitHubPages = true || /(github\.io|codesandbox\.io)/.test(window.location.hostname)
+const isGitHubPages = /(github\.io|codesandbox\.io)/.test(window.location.hostname)
 
 
 function NavTabsDemo() {

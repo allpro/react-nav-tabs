@@ -1,26 +1,26 @@
 {
   "esm/index.js": {
-    "bundled": 142452,
-    "minified": 48932,
-    "gzipped": 14216,
+    "bundled": 142746,
+    "minified": 49132,
+    "gzipped": 14275,
     "treeshaked": {
       "rollup": {
-        "code": 26762,
-        "import_statements": 191
+        "code": 26939,
+        "import_statements": 206
       },
       "webpack": {
-        "code": 28979
+        "code": 29157
       }
     }
   },
   "umd/react-nav-tabs.min.js": {
-    "bundled": 28280,
-    "minified": 26893,
-    "gzipped": 9425
+    "bundled": 28352,
+    "minified": 26965,
+    "gzipped": 9446
   },
   "umd/@allpro/react-nav-tabs.min.js": {
-    "bundled": 28280,
-    "minified": 26893,
-    "gzipped": 9425
+    "bundled": 28437,
+    "minified": 27051,
+    "gzipped": 9481
   }
 }

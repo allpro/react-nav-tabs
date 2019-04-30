@@ -193,6 +193,7 @@ Wrapper.propTypes = {
 			props: object
 		})
 	),
+	depth: number,
 	parentPath: string,
 	rootPath: string,
 	// withRouter props
@@ -206,7 +207,7 @@ Wrapper.propTypes = {
 }
 
 Wrapper.defaultProps = {
-	defaultTab: false, // false means no-tab-selected
+	defaultTab: 0, // false means no-tab-selected
 	tabs: [
 		{
 			label: 'One',
