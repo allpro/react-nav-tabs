@@ -1,6 +1,6 @@
 {
-  "name": "react-nav-tabs",
-  "version": "0.6.1",
+  "name": "@allpro/react-nav-tabs",
+  "version": "0.6.2",
   "description": "Wrapper for Material UI Tabs to integrate them with React Router",
   "repository": {
     "type": "git",

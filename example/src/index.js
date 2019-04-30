@@ -3,7 +3,8 @@ import { render } from 'react-dom'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 import App from './App'
-import { isGitHubPages } from './utils'
+
+const isGitHubPages = true || /(github\.io|codesandbox\.io)/.test(window.location.hostname)
 
 
 function NavTabsDemo() {

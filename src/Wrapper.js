@@ -126,15 +126,6 @@ class Wrapper extends React.Component {
 			if (tab.selected) {
 				newState.selectedIndex = idx
 			}
-
-			if (match) {
-				console.log({
-					[path]: 'MATCH',
-					fullPath: tab.fullPath,
-					match: props.match,
-					location: props.location
-				})
-			}
 		}
 
 		return newState
