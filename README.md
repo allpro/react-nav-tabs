@@ -177,8 +177,8 @@ This is separate so the tab-content can be rendered separate from the tabs.
 ### Structure Example
 
 If NavTabs is implemented _without any configuration_, 
-then sample `tabs` data is used to create a quick 3-tab prototype. 
-This allows cosmetic styles can be applied even before the content exists.
+**sample `tabs` data is used to create a quick 3-tab prototype**. 
+Cosmetic tab styles can be applied and tested before the real content exists.
 
 If `tabs` configuration is set, but some tabs are missing a `component` prop,
 NavTabs will render placeholders as the content for those tabs.
@@ -203,18 +203,18 @@ function Test() {
 ### Configuration Example
 
 Normally you will configure your tabs and content.
-A `component` must be specified for each tab - this is the tab-content.
+A `component` must be specified as the 'content' for each tab.
 
-If `props` are specified, these will be passed to the `component` for that tab.
+If a `props` key is specified, these are passed to the `component` for that tab.
 
 Cosmetic props for the [Tabs component](https://material-ui.com/api/tabs/) 
 can be set directly on the `<Tabs>` component.
 It also accepts **one extra prop**: **`TabProps`**.
 These are a hash of props you'd like to pass to _each_ of the auto-generated
 [Tab components](https://material-ui.com/api/tab/).
-If you some `<Tab>` components require unique props, 
-then add these to the tab configuration data.
-For example, the `disabled` prop for "Contact Us" is specific to that
+If some `<Tab>` components require unique props, 
+add these to the tab configuration data.
+For example, the `disabled` prop for "Contact Us" (below) is specific to that
 [Tab](https://material-ui.com/api/tab/).
 
 ```javascript
@@ -240,10 +240,7 @@ const tabs = [
 
 function Test() {
     return (
-        <NavTabs
-            tabs={tabs}
-            defaultTab={0}
-        >
+        <NavTabs tabs={tabs}>
             <Tabs />
             <Content />
         </NavTabs>
