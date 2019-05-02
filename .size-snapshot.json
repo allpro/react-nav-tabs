@@ -1,8 +1,8 @@
 {
   "esm/index.js": {
-    "bundled": 142851,
-    "minified": 49155,
-    "gzipped": 14287,
+    "bundled": 142864,
+    "minified": 49167,
+    "gzipped": 14289,
     "treeshaked": {
       "rollup": {
         "code": 26962,
@@ -14,9 +14,9 @@
     }
   },
   "umd/react-nav-tabs.min.js": {
-    "bundled": 28464,
-    "minified": 27078,
-    "gzipped": 9497
+    "bundled": 28481,
+    "minified": 27095,
+    "gzipped": 9504
   },
   "umd/@allpro/react-nav-tabs.min.js": {
     "bundled": 28437,
