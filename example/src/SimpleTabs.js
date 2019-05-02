@@ -12,16 +12,22 @@ const tabs = [
         label: 'Tab One',
         path: 'one',
         props: { text: 'Placeholder for "Tab One"', code }
+        // component: FirstTabContent
+        // * Placeholder component will be used by default
     },
     {
         label: 'Tab Two',
         path: 'two',
         props: { text: 'Placeholder for "Tab Two"' }
+        // component: SecondTabContent
+        // * Placeholder component will be used by default
     },
     {
         label: 'Tab Three',
         path: 'three',
         props: { text: 'Placeholder for "Tab Three"' }
+        // component: ThirdTabContent
+        // * Placeholder component will be used by default
     }
 ]
 
@@ -41,16 +47,22 @@ const tabs = [
 		label: 'Tab One',
 		path: 'one',
 		props: { text: 'Placeholder for "Tab One"', code }
+		// component: FirstTabContent
+		// * Placeholder component will be used by default
 	},
 	{
 		label: 'Tab Two',
 		path: 'two',
 		props: { text: 'Placeholder for "Tab Two"' }
+		// component: SecondTabContent
+		// * Placeholder component will be used by default
 	},
 	{
 		label: 'Tab Three',
 		path: 'three',
 		props: { text: 'Placeholder for "Tab Three"' }
+		// component: ThirdTabContent
+		// * Placeholder component will be used by default
 	}
 ]
 

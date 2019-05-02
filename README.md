@@ -10,16 +10,16 @@
 [![donate][donate-badge]][donate]
 
 
-[React-Nav-Tabs](https://www.npmjs.com/package/@allpro/react-nav-tabs) 
+[React NavTabs](https://www.npmjs.com/package/@allpro/react-nav-tabs) 
 is a helper that integrates **Material UI Tabs** with **React Router 4/5**. 
-The tabs then function as navigation, and sync with the URL.
-Hyperlinks, Back/Forward buttons, and all other navigation work as expected.
+The tabs then function as navigation and sync with the URL.
+Hyperlinks, Back/Forward buttons, and other navigation work as expected.
 
 **Motivation**
 
 I usually want each 'tab' in a set of tabs to have a unique URL.
 This makes Back/Forward function as users expect, 
-and makes it possible to 'link' directly to a specific tab.
+and makes it possible to 'link' directly to any specific tabs.
 
 Integrating Tabs with React Router requires making each 'tab' a `<Link>` 
 component, with a corresponding `<Route>` component for each tab.
@@ -55,7 +55,7 @@ It uses the `withRouter()` HOC provided by React-Router 4+.
 
 #### Peer-Dependencies
 
-RRP will work in any project meeting these dependencies.
+NavTabs will work in any project meeting these dependencies.
 ```json
 "peerDependencies": {
     "prop-types": ">=15",
@@ -68,8 +68,11 @@ RRP will work in any project meeting these dependencies.
 
 ## Usage
 
-NavTabs integrates the Material UI `<Tabs>` and `<Tab>` components with 
-React Router `<Route>` components.
+NavTabs _wraps_ Material UI `<Tabs>` and `<Tab>` components, plus 
+React Router `<Route>` components. It generates all these components for you.
+If you already use Material UI Tabs in your app, 
+it's very easy to convert them to NavTabs, with _no change_ to their appearance.
+
 NavTabs consists of 3 separate components:
 
 - **`<NavTabs>` Wrapper** &nbsp; (default export)
@@ -85,28 +88,40 @@ NavTabs consists of 3 separate components:
   <br>Outputs the React Router `<Route>` components (one per tab).
   <br>See [Content Subomponent Props](#content-subcomponent-props)
 
-The `<Tabs>` and `<Content>` are **subcomponents** so they can fit any layout.
+The `<Tabs>` and `<Content>` are **separate subcomponents** so they can fit 
+inside any layout you need. NavTabs can also be _nested_ (tabs within tabs).
 
-NavTabs can also be _nested_ (tabs within tabs).
+### Exposed Helpers
 
-If you have existing Tabs in your app, it's simple to convert them to NavTabs,
-with no change to their appearance.
+Two internal helper component are also exported in case they are useful to devs:
+
+- **`<Placeholder>` Component** &nbsp; (named export)
+  <br>A simple placeholder component used when no `component` is specified.
+  <br>Accepts a `text` prop to customize the placeholder text.
+  <br>Also accepts a `code` prop, which is used by some NavTabs demos.
+
+- **`<PropsRoute>` Component** &nbsp; (named export)
+  <br>A wrapper around the **React Router `<Route>`** component.
+  This allows props to be _passed-through_ to the component specified for a
+   route.
+  <br>**Use this _in place of_ `<Route>`** if you want to pass-through props.
+  <br>Any prop not applicable to a `<Route>` is considered a component prop.
 
 ### NavTabs Component Props
 
-Usually you only need to set the `tabs` prop.
-The other props are needed only for edge-cases.
+**Usually you only need the `tabs` prop.**
+The other props listed here are needed only for special cases.
 
 - **`tabs`** &nbsp; {array} `[null]` &nbsp; _required_
-  <br>This is the configuration of all the tabs.
-  <br>(If `tabs` is not set, a sample set of tabs will be displayed)
+  <br>This is the _configuration_ for all the tabs.
+  <br>**(If `tabs` is not set, a sample set of tabs will be displayed.)**
   <br>See **[`tabs` Configuration](#tabs-configuration)** below.
 
-- **`defaultTab`** &nbsp; {integer/false} `[0]` &nbsp; _optional_
+- **`defaultTab`** &nbsp; {integer|false} `[0]` &nbsp; _optional_
   <br>Specify which tab should display by default.
   <br>Set to `false` to have _no tab selected_ by default.
-  <br>NavTabs will automatially _redirect_ to the path set for the first tab 
-  	if necessary.
+  <br>NavTabs will _redirect_ to the path set for the default tab if URL 
+    does not already include a valid tab-path.
 
 - **`depth`** &nbsp; {integer} `[null]` &nbsp; _optional_
   <br>When NavTabs are nested, it cannot automatically determine which part
@@ -114,62 +129,88 @@ The other props are needed only for edge-cases.
       segment of the URL the tabs occupy.
       Set to `0` for the root of the URL, `1` for the second segment, and so on.
 
-- **`parentPath`** &nbsp; {boolean} `[true]` &nbsp; _optional_
+- **`parentPath`** &nbsp; {string} `[""]` &nbsp; _optional_
   <br>This also addresses the issue of confusing URLs that cannot be 
       automatically parsed. In most cases, using `depth` is easier.
 
-- **`rootPath`** &nbsp; {boolean} `[true]` &nbsp; _optional_
+- **`rootPath`** &nbsp; {string} `[""]` &nbsp; _optional_
   <br>Handles scenarios where one tab is the 'root' ("/") of the website.
-  <br>In most cases this can be handled by just leaving the tab `path' blank.
+  <br>In most cases this can be handled by just leaving the tab `path` blank.
 
 ### `tabs` Configuration
 
 The `tabs` prop accepts an array of tab-configurations.
 Each tab configuration accepts these props:
 
-- **`label`** &nbsp; {string} `[]` &nbsp; _required_
+- **`label`** &nbsp; {string} `[""]` &nbsp; _required_
   <br>The text to display on the tab - identical to the 
      [Material UI Tab](https://material-ui.com/api/tab/) label prop.
 
-- **`path`** &nbsp; {string} `[]` &nbsp; _required_
+- **`path`** &nbsp; {string} `[""]` &nbsp; _required_
   <br>Set a path the same as if adding a sub-route to React Router.
   <br>The `path` is treated as relative to the parent path 
       _unless_ path starts with a slash, like: `"/absolute/path"`.
 
 - **`exact`** &nbsp; {boolean} `[false]` &nbsp; _optional_
   <br>This is the React Router 'exact' prop.
-     In most cases NavTabs will set this appropriately automatically.
+     In most cases NavTabs will correctly set this automatically.
 
 - **`component`** &nbsp; {component} `[null]` &nbsp; _required_
   <br>Import and specify the component to display when tab is selected.
   <br>**If no component is set, a `<Placeholder>` component will display.**
 
 - **`props`** &nbsp; {object} `[null]` &nbsp; _optional_
-  <br>Any props that you want to pass to the `component` specified.
+  <br>Props that you want passed to the `component` specified.
+
+**See the [Configuration Example](#configuration-example) below.**
 
 Any other props specified will be passed-through to the
 [Material UI Tab](https://material-ui.com/api/tab/) component.
 For example, set `disabled: true` to disable a tab.
+
 
 ### `<Tab>` Subcomponent Props
 
 NavTabs exports a named `<Tab>` component that outputs the Tabs markup.
 This is separate so the tabs can be rendered inside a special layout or wrapper.
 
-This component does not _require_ any props, but you can set any of the props
-accepted by the [Material UI Tabs](https://material-ui.com/api/tabs/) component.
+This component does not require any props, but you _can_ set any prop applicable
+to the [Material UI Tabs](https://material-ui.com/api/tabs/) component.
+For example:
 
-To pass the same props to _each_ of the autogenerated
-[Material UI Tab](https://material-ui.com/api/tab/) sub-compoents,
-add them in a `TabProps` prop.
-<br>(To set different props for each `<Tab>`, add them to the `tabs` config.) 
+```javascript
+<Tabs textColor="primary" indicatorColor="primary" />
+```
+
+This component also accepts **one special prop**: **`TabProps`**.
+This lets you pass props to each of the _autogenerated_
+[Material UI Tab](https://material-ui.com/api/tab/) subcomponents. 
+For example:
+
+```javascript
+<Tabs TabProps={{ disableRipple: true, classes: classes.tab }} />
+```
+
+Note: To set _different props_ for each `<Tab>`, add these in the `tabs` config.
+For example, to disable one specific tab:
+```javascript
+const tabs = [
+    {
+        label: 'Contact Us',
+        path:  'contacts',
+        disabled: true, // Extra prop is passed-through to MUI 'Tab' component
+        component: ContactInfo
+    },
+    { ... }
+]
+```
 
 ### `<Content>` Subcomponent Props
 
 NavTabs exports a named `<Content>` component that outputs all the 
 `<Route>` components; one for each tab.
 This is separate so the tab-content can be rendered separate from the tabs.
-<br>This component does not accept any props.
+<br>**This component does not accept any props.**
 
 
 ## Examples
@@ -178,10 +219,7 @@ This is separate so the tab-content can be rendered separate from the tabs.
 
 If NavTabs is implemented _without any configuration_, 
 **sample `tabs` data is used to create a quick 3-tab prototype**. 
-Cosmetic tab styles can be applied and tested before the real content exists.
-
-If `tabs` configuration is set, but some tabs are missing a `component` prop,
-NavTabs will render placeholders as the content for those tabs.
+Cosmetic tab props can still be applied.
 ```javascript
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
 
@@ -189,7 +227,11 @@ function Test() {
     return (
         <NavTabs>
             <CustomHeader>
-                <Tabs />
+                <Tabs 
+                    textColor="primary" 
+                    indicatorColor="primary"
+                    TabProps={{ classes: classes.tab }}
+                />
             </CustomHeader>
 
             <ContentWrapper>
@@ -202,20 +244,13 @@ function Test() {
 
 ### Configuration Example
 
-Normally you will configure your tabs and content.
-A `component` must be specified as the 'content' for each tab.
+The configure for each tab _requires_ a `label`, `path` and `component`.
+However a _blank_ `path` is valid; meaning it will display by default.
 
-If a `props` key is specified, these are passed to the `component` for that tab.
+If a `props` key is specified, these are passed to the `component`.
 
-Cosmetic props for the [Tabs component](https://material-ui.com/api/tabs/) 
-can be set directly on the `<Tabs>` component.
-It also accepts **one extra prop**: **`TabProps`**.
-These are a hash of props you'd like to pass to _each_ of the auto-generated
-[Tab components](https://material-ui.com/api/tab/).
-If some `<Tab>` components require unique props, 
-add these to the tab configuration data.
-For example, the `disabled` prop for "Contact Us" (below) is specific to that
-[Tab](https://material-ui.com/api/tab/).
+Any unexpected props are _passed-through_ to the `<Tab>` component, like
+the `disabled` prop shown below.
 
 ```javascript
 const tabs = [
@@ -227,26 +262,28 @@ const tabs = [
     {
         label: 'Contact Us',
         path:  'contacts',
-        disabled: true, // Extra prop to pass-through to MUI 'Tab' component
+        disabled: true, // Extra prop is passed-through to MUI 'Tab' component
         component: ContactInfo
     },
     {
         label: 'Careers',
         path:  'careers',
         component: JobPostings,
-        props: { filter: 'current' }
+        props: { filter: 'current' } // Props passed to JobPostings component
     }
 ];
 
 function Test() {
     return (
         <NavTabs tabs={tabs}>
-            <Tabs />
+            <Tabs indicatorColor="primary" />
             <Content />
         </NavTabs>
     );
 }
 ```
+
+See more examples in the [Live Demos](https://allpro.github.io/react-nav-tabs)
 
 
 ## Built With

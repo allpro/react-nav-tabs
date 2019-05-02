@@ -12,16 +12,19 @@ const innerTabs = [
         label: 'Inner Uno',
         path: 'uno',
         props: { text: 'Placeholder for "Inner Uno" tab' }
+        // Placeholder component will be used by default
     },
     {
         label: 'Inner Dos',
         path: 'dos',
         props: { text: 'Placeholder for "Inner Dos" tab' }
+        // Placeholder component will be used by default
     },
     {
         label: 'Inner Tres',
         path: 'tres',
         props: { text: 'Placeholder for "Inner Tres" tab' }
+        // Placeholder component will be used by default
     }
 ]
 
@@ -31,7 +34,10 @@ function InnerTabs() {
             tabs={innerTabs}
             depth={3}
         >
-            <Tabs indicatorColor="secondary" textColor="secondary" />
+            <Tabs 
+                indicatorColor="secondary" 
+                textColor="secondary" 
+            />
             <Content />
         </NavTabs>
     )
@@ -42,19 +48,16 @@ const middleTabs = [
     {
         label: 'Middle Un',
         path: 'un',
-        props: { text: 'Placeholder for "Middle Un" tab' },
         component: InnerTabs
     },
     {
         label: 'Middle Deux',
         path: 'deux',
-        props: { text: 'Placeholder for "Middle Deux" tab' },
         component: InnerTabs
     },
     {
         label: 'Middle Trois',
         path: 'trois',
-        props: { text: 'Placeholder for "Middle Trois" tab' },
         component: InnerTabs
     }
 ]
@@ -65,7 +68,10 @@ function MiddleTabs() {
             tabs={middleTabs}
             depth={2}
         >
-            <Tabs indicatorColor="primary" textColor="primary" />
+            <Tabs 
+                indicatorColor="primary" 
+                textColor="primary" 
+            />
             <Content />
         </NavTabs>
     )
@@ -110,16 +116,19 @@ const innerTabs = [
 		label: 'Inner Uno',
 		path: 'uno',
 		props: { text: 'Placeholder for "Inner Uno" tab', code }
+		// Placeholder component will be used by default
 	},
 	{
 		label: 'Inner Dos',
 		path: 'dos',
 		props: { text: 'Placeholder for "Inner Dos" tab' }
+		// Placeholder component will be used by default
 	},
 	{
 		label: 'Inner Tres',
 		path: 'tres',
 		props: { text: 'Placeholder for "Inner Tres" tab' }
+		// Placeholder component will be used by default
 	}
 ]
 
@@ -129,7 +138,10 @@ function InnerTabs() {
 			tabs={innerTabs}
 			depth={3}
 		>
-			<Tabs indicatorColor="secondary" textColor="secondary" />
+			<Tabs
+				indicatorColor="secondary"
+				textColor="secondary"
+			/>
 			<Content />
 		</NavTabs>
 	)
@@ -140,19 +152,16 @@ const middleTabs = [
 	{
 		label: 'Middle Un',
 		path: 'un',
-		props: { text: 'Placeholder for "Middle Un" tab' },
 		component: InnerTabs
 	},
 	{
 		label: 'Middle Deux',
 		path: 'deux',
-		props: { text: 'Placeholder for "Middle Deux" tab' },
 		component: InnerTabs
 	},
 	{
 		label: 'Middle Trois',
 		path: 'trois',
-		props: { text: 'Placeholder for "Middle Trois" tab' },
 		component: InnerTabs
 	}
 ]
@@ -163,7 +172,10 @@ function MiddleTabs() {
 			tabs={middleTabs}
 			depth={2}
 		>
-			<Tabs indicatorColor="primary" textColor="primary" />
+			<Tabs
+				indicatorColor="primary"
+				textColor="primary"
+			/>
 			<Content />
 		</NavTabs>
 	)
