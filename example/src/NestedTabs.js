@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
 
@@ -200,15 +201,19 @@ const outerTabs = [
 	}
 ]
 
+const isGitHubPages = /(github\.io|codesandbox\.io)/.test(window.location.hostname)
+
 function NestedTabs() {
 	return (
-		<NavTabs
-			tabs={outerTabs}
-			depth={1}
-		>
-			<Tabs />
-			<Content />
-		</NavTabs>
+		<Router basename={isGitHubPages ? '/react-nav-tabs' : ''}>
+			<NavTabs
+				tabs={outerTabs}
+				depth={1}
+			>
+				<Tabs />
+				<Content />
+			</NavTabs>
+		</Router>
 	)
 }
 

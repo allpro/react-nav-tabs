@@ -118,7 +118,8 @@ The other props listed here are needed only for special cases.
   <br>See **[`tabs` Configuration](#tabs-configuration)** below.
 
 - **`defaultTab`** &nbsp; {integer|false} `[0]` &nbsp; _optional_
-  <br>Specify which tab should display by default.
+  <br>Specify which tab should display by default. (0 = first tab; 1 = 
+  second, etc.)
   <br>Set to `false` to have _no tab selected_ by default.
   <br>NavTabs will _redirect_ to the path set for the default tab if URL 
     does not already include a valid tab-path.
@@ -151,7 +152,7 @@ Each tab configuration accepts these props:
   <br>The `path` is treated as relative to the parent path 
       _unless_ path starts with a slash, like: `"/absolute/path"`.
 
-- **`exact`** &nbsp; {boolean} `[false]` &nbsp; _optional_
+- **`exact`** &nbsp; {boolean} `[null]` &nbsp; _optional_
   <br>This is the React Router 'exact' prop.
      In most cases NavTabs will correctly set this automatically.
 

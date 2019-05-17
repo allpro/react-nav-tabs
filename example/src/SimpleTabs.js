@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import NavTabs, { Tabs, Content } from '@allpro/react-nav-tabs'
 
@@ -66,12 +67,16 @@ const tabs = [
 	}
 ]
 
+const isGitHubPages = /(github\.io|codesandbox\.io)/.test(window.location.hostname)
+
 function SimpleTabs() {
 	return (
-		<NavTabs tabs={tabs}>
-			<Tabs />
-			<Content />
-		</NavTabs>
+		<Router basename={isGitHubPages ? '/react-nav-tabs' : ''}>
+			<NavTabs tabs={tabs}>
+				<Tabs />
+				<Content />
+			</NavTabs>
+		</Router>
 	)
 }
 

@@ -1,20 +1,32 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
-import App from './App'
+import DemoLayout from '@allpro/demo-layout'
 
-const isGitHubPages = /(github\.io|codesandbox\.io)/.test(window.location.hostname)
+import SimpleTabs from './SimpleTabs'
+import NestedTabs from './NestedTabs'
 
 
 function NavTabsDemo() {
 	return (
-		<Router basename={isGitHubPages ? '/react-nav-tabs' : ''}>
-			<Switch>
-				<Route path="/" exact component={App} />
-				<Route path="/:tabL1" component={App} />
-			</Switch>
-		</Router>
+		<DemoLayout
+			packageName="react-nav-tabs"
+			title="React NavTabs Examples"
+			readme="https://github.com/allpro/react-nav-tabs/blob/master/README.md"
+			demo="https://codesandbox.io/s/github/allpro/react-nav-tabs/tree/master/example"
+			pages={[
+				{
+					label: 'Simple Tabs',
+					path: '/simple-tabs',
+					component: SimpleTabs
+				},
+				{
+					label: 'Nested Tabs',
+					path: '/nested-tabs',
+					component: NestedTabs
+				}
+			]}
+		/>
 	)
 }
 
